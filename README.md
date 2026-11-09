@@ -22,6 +22,7 @@ install.packages(c(
   "tidyverse", "haven", "knitr", "psych",
   "gt", "survival", "mlogit", "gmnl"
 ))
+```
 
 ##AI Usage
 
