@@ -22,8 +22,10 @@ install.packages(c(
   "tidyverse", "haven", "knitr", "psych",
   "gt", "survival", "mlogit", "gmnl"
 ))
+```
 
-##AI Usage
+
+## AI Usage
 
 AI was used for debugging to get this to work on github. 
 
