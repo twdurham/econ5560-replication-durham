@@ -177,3 +177,39 @@ wtp_fit2 <- logitr(
 summary(wtp_fit2)
 logLik(wtp_fit2) # paper: -10,758.264
 ```
+
+## Latent Class Model
+
+``` R
+{r}
+#| eval: false
+library(gmnl)
+
+f_sel <- as.formula(paste("choice ~ cdum +", paste(attrs, collapse = " + "),
+                          "+ cost | 0 | 0 | 0 | 1"))
+
+fit_q <- lapply(2:6, function(q)
+  gmnl(f_sel, data = everglades_mlogit2, model = "lc", Q = q, panel = TRUE,
+       method = "bfgs", iterlim = 500))
+
+ic <- function(m, n = 2100) {
+  ll <- as.numeric(logLik(m)); k <- attr(logLik(m), "df")
+  c(LL = ll, k = k, BIC = -2*ll + k*log(n), CAIC = -2*ll + k*(log(n) + 1))
+}
+do.call(rbind, lapply(fit_q, ic))
+```
+
+``` R
+{r}
+#| eval: false
+covs <- c("female","black","other_race","hispanic","age","college",
+          "income","politics","nep","nocost","nogovt","nopay")
+
+f_lc <- as.formula(paste(
+  "choice ~ cdum +", paste(attrs, collapse = " + "), "+ cost | 0 | 0 | 0 |",
+  paste(covs, collapse = " + ")))
+
+lc4 <- gmnl(f_lc, data = everglades_mlogit2, model = "lc", Q = 4,
+            panel = TRUE, method = "bfgs", iterlim = 1000)
+summary(lc4)
+```
