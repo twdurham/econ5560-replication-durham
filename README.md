@@ -23,7 +23,7 @@ install.packages(c(
   "gt", "survival", "mlogit", "gmnl"
 ))
 ```
-
+3. Use this code in a cmd file connected to the file: [Rscript.exe file location] run_all.R > logs\run_log.txt 2>&1
 
 ## AI Usage
 
