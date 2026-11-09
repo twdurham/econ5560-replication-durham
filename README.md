@@ -33,4 +33,4 @@ AI was used for debugging to get this to work on github.
 
 The automated pipeline reproduces the descriptive statistics, NEP correlation table, and conditional-logit regression (Table 6).
 
-The mixed random-parameter logit replication (Section 2.3) was attempted but was not included in the automated pipeline because it did not complete reliably on my computer. The mixed-logit code is retained in the repository for reference. And could not get latent class model to work. 
+The mixed random-parameter logit replication (Section 2.3) was attempted but was not included in the automated pipeline because it did not complete reliably on my computer. The mixed-logit code is retained in the repository for reference. And could not get latent class model to work for our paper but included what we had in the regression file. 
